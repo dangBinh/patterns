@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mkdirp": "^0.5.0",
+    "request": "^2.45.0",
+    "slug": "^0.7.1",
+	 "cheerio": "^0.14.0"
+  }
+}

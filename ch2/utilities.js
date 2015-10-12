@@ -4,6 +4,7 @@ var urlResolve = require('url').resolve;
 var slug = require('slug');
 var path = require('path');
 var cheerio = require('cheerio');
+var Promise = require('bluebird');
 
 module.exports.urlToFilename = function urlToFilename(url) {
   var parsedUrl = urlParse(url);
@@ -42,6 +43,23 @@ module.exports.getPageLinks = function getPageLinks(currentUrl, body) {
     .filter(function(element) {
       return !!element;
     });
+}
+
+module.exports.promisify = function (callbackBaseApi) {
+	return function promisified() {
+		var args = [].slice.call(arguments);
+		return new Promise(function(resolve, reject) {
+			if (err) {
+				return reject(err);
+			}
+			if (args.length <= 2) {
+				resolve(args);
+			} else {
+				resolve([].slice.call(arguments, 1));
+			}
+			callbackBaseApi.apply(null, args);
+		})
+	}
 }
 
 

@@ -10,6 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "chance": "^0.8.0",
-    "mkdirp": "^0.5.1"
+    "fstream": "^1.0.8",
+    "mkdirp": "^0.5.1",
+    "tar": "^2.2.1"
+  },
+  "devDependencies": {
+    "from2-array": "0.0.4",
+    "multipipe": "^0.2.0",
+    "request": "^2.65.0",
+    "split": "^1.0.0",
+    "through2": "^2.0.0"
   }
 }
